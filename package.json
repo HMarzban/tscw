@@ -1,0 +1,41 @@
+{
+  "name": "tsc_watch",
+  "version": "0.4.0",
+  "description": "watch .ts files and then compile it then bundle all module with webpack",
+  "main": "index.js",
+  "scripts": {
+    "webpack": "webpack"
+  },
+  "bin": {
+    "tscw": "./index.js"
+  },
+  "keywords": [
+    "cli",
+    "webpack",
+    "watcher",
+    "typescript"
+  ],
+  "homepage": "https://github.com/HosseinMarzban/ned",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HosseinMarzban/tscw"
+  },
+  "author": "Hossein Marzban",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.18.0",
+    "express": "^4.16.3",
+    "fs-extra": "^7.0.0",
+    "typescript": "^3.1.1",
+    "webpack": "^4.20.2"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.1.2"
+  },
+  "tscWatcher": {
+    "port": "600",
+    "watch_dir": "./nedLibrary",
+    "publicPath": "./src"
+  }
+}
