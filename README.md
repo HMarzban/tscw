@@ -17,7 +17,7 @@ After that create your `tsconfig.json` and `webpack.config.js`files and config l
 
 ``` javascript
 const  path = require('path');
-const  environment_mode = process.env.WebPack_ENV";
+const  environment_mode = process.env.WebPack_ENV;
 module.exports = {
 	mode:  environment_mode,
 	entry:  "./dist/main.js",
