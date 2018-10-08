@@ -1,16 +1,20 @@
 {
-  "name": "tsc_watch",
-  "version": "0.4.0",
-  "description": "watch .ts files and then compile it then bundle all module with webpack",
+  "name": "tscw-cli",
+  "version": "0.4.3",
+  "description": "watch .ts|.js files and then compile it then bundle all module with webpack",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack"
+    "webpack-dev": "webpack set WebPack_ENV=development",
+    "webpack-pro": "webpack set WebPack_ENV=productino"
   },
   "bin": {
     "tscw": "./index.js"
   },
   "keywords": [
     "cli",
+    "es6",
+    "es5",
+    "js",
     "webpack",
     "watcher",
     "typescript"

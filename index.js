@@ -8,7 +8,7 @@ const fs = require('fs-extra'),
     path = require("path");
 
 
-    const _init = async () => {
+    const _init = async (_webpackMode) => {
 
       if (fs.existsSync( path.resolve("./webpack.config.js") ) && fs.existsSync( path.resolve("./tsconfig.json") )) {
 
@@ -27,8 +27,15 @@ const fs = require('fs-extra'),
             });
 
             console.info(`${chalk.magentaBright('[TSC Watch-webpack]:')} Webpack Run:`);
+
+            let webpackCommand = _webpackMode == "production" ? "production" : "development"
+            let productionEnv = Object.create(process.env);
+
+            productionEnv.WebPack_ENV = webpackCommand;
+
             await spawnSync('npm', ["run webpack"], {
               stdio: 'inherit',
+              env: productionEnv,
               shell: true
             });
             console.info(`\n${chalk.magentaBright('[TSC Watch]:')} Done.`);
@@ -38,8 +45,18 @@ const fs = require('fs-extra'),
 
         if (_config) {
 
-          if (packageJson.scripts.webpack != "webpack")
-            throw new Error(`${chalk.magentaBright('[TSC Watch]:')}${chalk.bold.redBright("[Error]:")} we need this configuration in "script" prosperity in "package.json":  "webpack": "webpack"  `);
+          if (packageJson.scripts["webpack"] !== "webpack")
+            throw new Error(`
+            
+            ${chalk.magentaBright('[TSC Watch]:')}${chalk.bold.redBright("[Error]:")} we need this configuration in "package.json" file: 
+             
+                "scripts": {
+                    ...
+                    "webpack": "webpack"
+                    ...
+                }
+
+            `);
 
           await changeHappend();
 
@@ -90,8 +107,20 @@ const fs = require('fs-extra'),
     program
       .command('serve')
       .description('Start TSCWatch listner')
-      .action(() => {
-        _init();
+      .option('-p, --production', 'Webpack Production bundle')
+      .option('-d, --development', 'Webpack Production bundle')
+      .action((_ootion) => {
+
+        let webpackMode;
+
+        if(_ootion.production)
+          webpackMode = "production";
+
+        if(_ootion.development)
+          webpackMode = "development";
+
+        _init(webpackMode);
+
       })
 
     program.parse(process.argv)
