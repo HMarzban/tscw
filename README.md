@@ -1,16 +1,20 @@
+## Historical development tool
+
+This watcher belongs to the [Ned project family](https://github.com/HMarzban/ned). Its examples target the original TypeScript 3 / Webpack 4 toolchain. It is preserved as development-tooling history, not a recommendation for a new application.
+
 ## TSCWatcher
 
 Simple command line interface (CLI) to compile TypeScript/JS in your ES target then Bundle all your Module compiled files with WebPack then watches your changes in real-time.
 
 
-This package is part of <a  href="https://github.com/HosseinMarzban/ned">**Ned Library**</a> Project.
+This package is part of <a  href="https://github.com/HMarzban/ned">**Ned Library**</a> Project.
 
 **install**: `npm i -g tscw-cli`
 **Production use**: `tscw serve -p`
 **Development use** `tscw serve -d`
 
 ### How to use `tscw`:
-Install pakage: `npm i webpack webpack-cli typscript`
+Install pakage: `npm i webpack webpack-cli typescript`
 After that create your `tsconfig.json` and `webpack.config.js`files and config like below:
 
 `webpack.config.js`

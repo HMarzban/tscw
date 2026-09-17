@@ -4,8 +4,8 @@
   "description": "watch .ts|.js files and then compile it then bundle all module with webpack",
   "main": "index.js",
   "scripts": {
-    "webpack-dev": "webpack set WebPack_ENV=development",
-    "webpack-pro": "webpack set WebPack_ENV=productino"
+    "webpack-dev": "webpack --mode development",
+    "webpack-pro": "webpack --mode production"
   },
   "bin": {
     "tscw": "./index.js"
@@ -25,7 +25,7 @@
     "url": "https://github.com/HosseinMarzban/tscw"
   },
   "author": "Hossein Marzban",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
     "chalk": "^2.4.1",
     "commander": "^2.18.0",
